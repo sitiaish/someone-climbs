@@ -6,7 +6,7 @@
 
       <!-- Header -->
       <header class="about-header">
-        <img src="/aishah-5.svg" alt="Aishah" class="about-sprite" />
+        <img :src="`${baseUrl}aishah-5.svg`" alt="Aishah" class="about-sprite" />
         <div>
           <h1 class="about-headline">so, about this project...</h1>
         </div>
@@ -113,6 +113,7 @@
 
 <script setup>
 defineOptions({ name: 'AboutPage' })
+const baseUrl = import.meta.env.BASE_URL
 </script>
 
 <style scoped>

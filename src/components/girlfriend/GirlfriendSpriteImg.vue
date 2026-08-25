@@ -34,7 +34,7 @@ const EXPR_TO_SVG = {
 
 const src = computed(() => {
   const n = EXPR_TO_SVG[props.expression] ?? 1
-  return `/aishah-${n}.svg`
+  return `${import.meta.env.BASE_URL}aishah-${n}.svg`
 })
 </script>
 

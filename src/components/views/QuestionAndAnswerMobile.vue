@@ -27,7 +27,7 @@
     <!-- GF portrait + speech bubble — shown below sticky bar when her mode is on -->
     <Transition name="gf-reveal">
       <div v-if="isActive" class="gf-row">
-        <img :src="`/aishah-${spriteNum}.svg`" alt="Aishah" class="gf-portrait" />
+        <img :src="`${baseUrl}aishah-${spriteNum}.svg`" alt="Aishah" class="gf-portrait" />
         <div class="gf-bubble">
           <p class="gf-bubble-line">{{ reaction.line }}</p>
           <p class="gf-bubble-subline">{{ reaction.subline }}</p>
@@ -69,6 +69,7 @@ const reaction = computed(() => getReaction(activeQuestionId.value))
 
 const EXPR_TO_SVG = { impressed: 5, suspicious: 2, naggy: 1, dramatic: 4, confused: 3, judging: 1, upset: 2 }
 const spriteNum = computed(() => EXPR_TO_SVG[reaction.value?.expression] ?? 1)
+const baseUrl = import.meta.env.BASE_URL
 
 // Scroll to top of this component (not window top) when question changes
 watch(activeIndex, () => rootRef.value?.scrollIntoView({ behavior: 'smooth', block: 'start' }))
