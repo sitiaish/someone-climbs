@@ -1,0 +1,228 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&family=Gloria+Hallelujah&display=swap');
+
+@import './base.css';
+@import 'tailwindcss';
+
+#app {
+  font-family: 'Fira Code', monospace !important;
+}
+
+@theme {
+  /* Colors */
+  --color-beige: #ececec;
+  --color-offwhite: #f2f2ea;
+  --color-green: #04311c;
+  --color-teal: #54a8d8;
+  --color-duckegg: #a7cbdc;
+  --color-grayblue: #d6e9f2;
+  --color-orange: #e39937;
+
+  --color-gradient: linear-gradient(180deg, #54a8d8 0%, #52a780 100%);
+  --color-graygradient: linear-gradient(90deg, #d2d3d5 5.58%, #ececec 70.61%);
+
+  /* Fonts */
+  --font-primary: 'Fira Code', monospace;
+}
+
+@layer base {
+
+  .text-title {
+    @apply font-primary text-[64px] leading-[56px] lg:text-[124px] lg:leading-[108px] 2xl:text-[132px] 2xl:leading-[116px];
+  }
+
+  .text-header-1 {
+    @apply font-primary text-[32px] leading-[32px] md:text-[48px] md:leading-[48px] lg:text-[52px] lg:leading-[52px];
+  }
+
+  .text-header-2 {
+    @apply font-primary text-[24px] leading-[24px] md:text-[40px] md:leading-[40px];
+  }
+
+  .text-header-3 {
+    @apply font-primary text-[20px] leading-[20px] md:text-[32px] md:leading-[32px];
+  }
+
+  .text-header-4 {
+    @apply font-primary text-[20px] leading-[20px] md:text-[28px] md:leading-[30px];
+  }
+
+  .text-body-3 {
+    @apply font-primary text-[12px] leading-[18px]
+  }
+
+  .text-body-2 {
+    @apply font-primary text-[15px] leading-[22px]
+  }
+
+  .content-block {
+    p {
+      @apply text-green mb-5 not-italic;
+    }
+
+    p:last-child {
+      @apply mb-0;
+    }
+  }
+
+  .container.grid > div:last-of-type {
+    margin-bottom: 0;
+  }
+
+  div:last-child {
+    margin-bottom: 0 !important;
+  }
+}
+
+@layer utilities {
+  /*------------------------------------*\
+      #LINK-TEXT (animated underline)
+  \*------------------------------------*/
+  .link-text a {
+    text-decoration: underline;
+  }
+}
+
+/* s
+div.viz-grid-cards  {
+  padding: 0 84px;
+  background-color: var(--color-beige);
+}
+
+/* Custom container class */
+.container {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 960px;
+}
+
+@media (min-width: 1024px) {
+  /* section {
+    padding: 96px 48px;
+  } */
+
+  .container {
+    max-width: 960px;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+
+.story-nav-buttons {
+  position: relative;
+  display: inline-block;
+  padding: 12px 24px;
+  border-radius: 32px;
+  color: var(--color-beige);
+  overflow: hidden;
+  cursor: pointer;
+  z-index: 0;
+}
+
+.story-nav-buttons::before,
+.story-nav-buttons::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 32px;
+  transition: opacity 0.65s;
+  z-index: -1;
+}
+
+/* Default gradient */
+.story-nav-buttons::before {
+  background: var(--color-gradient);
+  opacity: 1;
+}
+
+/* Hover gradient */
+.story-nav-buttons::after {
+  background: linear-gradient(180deg, #04311c 0%, #04311c 100%);
+  opacity: 0;
+}
+
+/* On hover, fade in the hover gradient */
+.story-nav-buttons:hover::after {
+  opacity: 1;
+}
+
+.bg-graygradient {
+  background: var(--color-graygradient);
+  border-top-left-radius: 8px;
+}
+
+.bg-gradient {
+  background: var(--color-gradient);
+}
+
+blockquote {
+  border-left: 2px solid var(--color-green);
+  margin-left: 12px;
+  padding-left: 24px;
+  margin-top: 32px;
+}
+
+a {
+  background: 
+    linear-gradient(to right, rgba(100, 200, 200, 1), rgba(100, 200, 200, 1)),
+    linear-gradient(to right, rgba(255, 0, 0, 1), rgba(255, 0, 180, 1), rgba(0, 100, 200, 1));
+  background-size: 100% 0.15em, 0 0.15em;
+  background-position: 100% 100%, 0 100%;
+  background-repeat: no-repeat;
+  transition: background-size 400ms;
+}
+
+a:hover,
+a:focus {
+  background-size: 0 0.15em, 100% 0.15em;
+}
+
+.answer-frame {
+  color: #1C1917;
+  /* border: 1px solid black; */
+  margin: 54px 0;
+}
+
+.answer-headline {
+  font-size: clamp(36px, 5vw, 36px);
+  font-weight: 500;
+  color: #0163c6;
+  line-height: 1.1;
+  margin-bottom: 16px !important;
+}
+
+.answer-small-label {
+  font-size: 12px;
+  color: #1C1917;
+}
+
+.gf-theme .answer-frame p.text-body-2, .gf-theme .answer-frame p {
+  font-family: 'Gloria Hallelujah', cursive !important;
+  color: #e0478a !important;
+}
+
+
+.dot-legend {
+  display: flex;
+  gap: 16px;
+  font-family: 'Fira Code', monospace;
+  font-size: 12px;
+  color: #3D3830;
+}
+.dot-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.dot-swatch {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.dot-boulder { background: #ff7876; }
+.dot-lead    { background: #0163c6; }
